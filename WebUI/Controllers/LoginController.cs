@@ -13,5 +13,10 @@ namespace WebUI.Controllers
         {
             return View();
         }
+
+        public ActionResult LoginForm()
+        {
+            return View();
+        }
     }
 }

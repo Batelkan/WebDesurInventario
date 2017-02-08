@@ -13,11 +13,25 @@
     <title>Login</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Login.css" rel="stylesheet" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
-<body>
-
-    <h2>Login Page</h2>
-
+<body  >
+    <div class="container">
+        <div class="row visible-xs">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                @{Html.RenderPartial("~/Views/Login/LoginForm.cshtml"); }
+            </div>
+            <div class="col-xs-4"></div>
+        </div>
+        <div class="row hidden-xs">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                @{Html.RenderPartial("~/Views/Login/LoginForm.cshtml"); }
+            <div class="col-md-4"></div>
+        </div>
+    </div>
 </body>
 </html>
+

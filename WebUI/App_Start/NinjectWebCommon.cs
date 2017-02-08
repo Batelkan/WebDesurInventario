@@ -10,7 +10,9 @@ namespace WebUI.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-
+    using Dominio.Abstracto;
+    using Dominio.Modelo;
+    using Dominio.Concreto;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -61,6 +63,8 @@ namespace WebUI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+
+            kernel.Bind<IUsuarioRepositorio>().To<EFUsuarioRepositorio>();
         }        
     }
 }
