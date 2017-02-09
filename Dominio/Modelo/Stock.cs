@@ -12,12 +12,16 @@ namespace Dominio.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Products
+    public partial class Stock
     {
-        public int ProductID { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Category { get; set; }
-        public decimal Price { get; set; }
+        public int ID { get; set; }
+        public int ID_Usuario { get; set; }
+        public int ID_Depto { get; set; }
+        public int ID_Articulo { get; set; }
+        public int ID_Computadora { get; set; }
+        public System.DateTime FechaAsignacion { get; set; }
+        public string Observaciones { get; set; }
+        public string Autorizo { get; set; }
+        public Nullable<int> ID_UnidadNegocio { get; set; }
     }
 }

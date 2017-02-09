@@ -11,9 +11,9 @@ namespace Dominio.Concreto
 {
    public class EFUsuarioRepositorio:IUsuarioRepositorio
     {
-        private InformaticaEntities contexto = new InformaticaEntities();
+        private AlmacenEntidadesConexion contexto = new AlmacenEntidadesConexion();
         
-       public IEnumerable<Usuarios> Usuarios {
+       public IEnumerable<Usuario> Usuarios {
             get { return contexto.Usuarios; }
         } 
 

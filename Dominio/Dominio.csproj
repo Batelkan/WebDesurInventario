@@ -110,81 +110,85 @@
     <Compile Include="Entidades\Suministros.cs" />
     <Compile Include="Entidades\UnidadesDeNegocio.cs" />
     <Compile Include="Entidades\Usuario.cs" />
-    <Compile Include="Modelo\AlmacenBD.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AlmacenBD.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\AlmacenBD.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\AlmacenBD.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AlmacenBD.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Modelo\Arca.cs">
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Articulos.cs">
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
+    <Compile Include="Modelo\Articulo.cs">
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Computadoras.cs">
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
+    <Compile Include="Modelo\Computadora.cs">
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Datos.cs">
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
+    <Compile Include="Modelo\Dato.cs">
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Departamentos.cs">
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
+    <Compile Include="Modelo\Departamento.cs">
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Products.cs">
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
+    <Compile Include="Modelo\InventarioEDM.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventarioEDM.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Stocks.cs">
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
+    <Compile Include="Modelo\InventarioEDM.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\InventarioEDM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventarioEDM.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Product.cs">
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Stock.cs">
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Tipo.cs">
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Unidades.cs">
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
+    <Compile Include="Modelo\Unidade.cs">
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\UnidadNegocio.cs">
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Usuarios.cs">
-      <DependentUpon>AlmacenBD.tt</DependentUpon>
+    <Compile Include="Modelo\Usuario.cs">
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\WebAdminUser.cs">
+      <DependentUpon>InventarioEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Modelo\AlmacenBD.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AlmacenBD.edmx</DependentUpon>
-      <LastGenOutput>AlmacenBD.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Modelo\AlmacenBD.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AlmacenBD.edmx</DependentUpon>
-      <LastGenOutput>AlmacenBD.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
-    <EntityDeploy Include="Modelo\AlmacenBD.edmx">
+    <EntityDeploy Include="Modelo\InventarioEDM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AlmacenBD.Designer.cs</LastGenOutput>
+      <LastGenOutput>InventarioEDM.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Modelo\AlmacenBD.edmx.diagram">
-      <DependentUpon>AlmacenBD.edmx</DependentUpon>
+    <None Include="Modelo\InventarioEDM.edmx.diagram">
+      <DependentUpon>InventarioEDM.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Modelo\InventarioEDM.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InventarioEDM.edmx</DependentUpon>
+      <LastGenOutput>InventarioEDM.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\InventarioEDM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InventarioEDM.edmx</DependentUpon>
+      <LastGenOutput>InventarioEDM.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

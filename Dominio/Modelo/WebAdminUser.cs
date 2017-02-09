@@ -12,11 +12,12 @@ namespace Dominio.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Departamentos
+    public partial class WebAdminUser
     {
         public int ID { get; set; }
-        public string Descripcion { get; set; }
         public string Nombre { get; set; }
-        public string JefeArea { get; set; }
+        public string Correo { get; set; }
+        public string contraseña { get; set; }
+        public string Nivel { get; set; }
     }
 }

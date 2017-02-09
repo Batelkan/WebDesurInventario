@@ -145,6 +145,16 @@
           <Property Name="Departamento" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Puesto" Type="varchar" MaxLength="150" Nullable="false" />
         </EntityType>
+        <EntityType Name="WebAdminUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Correo" Type="varchar" MaxLength="100" />
+          <Property Name="contraseña" Type="varchar" MaxLength="10" />
+          <Property Name="Nivel" Type="varchar" MaxLength="20" />
+        </EntityType>
         <Association Name="fk_Usuario">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
           <End Role="Datos" Type="Self.Datos" Multiplicity="*" />
@@ -169,6 +179,7 @@
           <EntitySet Name="Unidades" EntityType="Self.Unidades" Schema="Informatica" store:Type="Tables" />
           <EntitySet Name="UnidadNegocio" EntityType="Self.UnidadNegocio" Schema="Informatica" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="Informatica" store:Type="Tables" />
+          <EntitySet Name="WebAdminUser" EntityType="Self.WebAdminUser" Schema="Informatica" store:Type="Tables" />
           <AssociationSet Name="fk_Usuario" Association="Self.fk_Usuario">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Datos" EntitySet="Datos" />
@@ -190,7 +201,7 @@
           <Property Name="Observaciones" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
-        <EntityType Name="Articulos">
+        <EntityType Name="Articulo">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -211,7 +222,7 @@
           <Property Name="Proveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="precioUnitario" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
         </EntityType>
-        <EntityType Name="Computadoras">
+        <EntityType Name="Computadora">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -236,7 +247,7 @@
           <Property Name="Precio" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
           <Property Name="Madre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="Datos">
+        <EntityType Name="Dato">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -248,9 +259,9 @@
           <Property Name="codigo_reloj" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NumUsuario_reloj" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FechaDeRegistro" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.fk_Usuario" FromRole="Datos" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuario" Relationship="Self.fk_Usuario" FromRole="Datos" ToRole="Usuarios" />
         </EntityType>
-        <EntityType Name="Departamentos">
+        <EntityType Name="Departamento">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -259,7 +270,7 @@
           <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="JefeArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="Products">
+        <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductID" />
           </Key>
@@ -269,7 +280,7 @@
           <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
         </EntityType>
-        <EntityType Name="Stocks">
+        <EntityType Name="Stock">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -291,7 +302,7 @@
           <Property Name="Tipo1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="Unidades">
+        <EntityType Name="Unidade">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -308,7 +319,7 @@
           <Property Name="Unidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Descipcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Usuarios">
+        <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -321,9 +332,19 @@
           <Property Name="Puesto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Datos" Relationship="Self.fk_Usuario" FromRole="Usuarios" ToRole="Datos" />
         </EntityType>
+        <EntityType Name="WebAdminUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="contraseña" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Nivel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
         <Association Name="fk_Usuario">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-          <End Role="Datos" Type="Self.Datos" Multiplicity="*" />
+          <End Role="Usuarios" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Datos" Type="Self.Dato" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
               <PropertyRef Name="ID" />
@@ -333,18 +354,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="InformaticaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Arca" EntityType="Self.Arca" />
-          <EntitySet Name="Articulos" EntityType="Self.Articulos" />
-          <EntitySet Name="Computadoras" EntityType="Self.Computadoras" />
-          <EntitySet Name="Datos" EntityType="Self.Datos" />
-          <EntitySet Name="Departamentos" EntityType="Self.Departamentos" />
-          <EntitySet Name="Products" EntityType="Self.Products" />
-          <EntitySet Name="Stocks" EntityType="Self.Stocks" />
-          <EntitySet Name="Tipo" EntityType="Self.Tipo" />
-          <EntitySet Name="Unidades" EntityType="Self.Unidades" />
-          <EntitySet Name="UnidadNegocio" EntityType="Self.UnidadNegocio" />
-          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+        <EntityContainer Name="AlmacenEntidadesConexion" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Arcas" EntityType="Self.Arca" />
+          <EntitySet Name="Articulos" EntityType="Self.Articulo" />
+          <EntitySet Name="Computadoras" EntityType="Self.Computadora" />
+          <EntitySet Name="Datos" EntityType="Self.Dato" />
+          <EntitySet Name="Departamentos" EntityType="Self.Departamento" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Stocks" EntityType="Self.Stock" />
+          <EntitySet Name="Tipoes" EntityType="Self.Tipo" />
+          <EntitySet Name="Unidades" EntityType="Self.Unidade" />
+          <EntitySet Name="UnidadNegocios" EntityType="Self.UnidadNegocio" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <EntitySet Name="WebAdminUsers" EntityType="Self.WebAdminUser" />
           <AssociationSet Name="fk_Usuario" Association="Self.fk_Usuario">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Datos" EntitySet="Datos" />
@@ -355,8 +377,8 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="InformaticaModelStoreContainer" CdmEntityContainer="InformaticaEntities">
-          <EntitySetMapping Name="Arca">
+        <EntityContainerMapping StorageEntityContainer="InformaticaModelStoreContainer" CdmEntityContainer="AlmacenEntidadesConexion">
+          <EntitySetMapping Name="Arcas">
             <EntityTypeMapping TypeName="InformaticaModel.Arca">
               <MappingFragment StoreEntitySet="Arca">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -369,7 +391,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Articulos">
-            <EntityTypeMapping TypeName="InformaticaModel.Articulos">
+            <EntityTypeMapping TypeName="InformaticaModel.Articulo">
               <MappingFragment StoreEntitySet="Articulos">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Fabricante" ColumnName="Fabricante" />
@@ -391,7 +413,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Computadoras">
-            <EntityTypeMapping TypeName="InformaticaModel.Computadoras">
+            <EntityTypeMapping TypeName="InformaticaModel.Computadora">
               <MappingFragment StoreEntitySet="Computadoras">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
@@ -417,7 +439,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Datos">
-            <EntityTypeMapping TypeName="InformaticaModel.Datos">
+            <EntityTypeMapping TypeName="InformaticaModel.Dato">
               <MappingFragment StoreEntitySet="Datos">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
@@ -431,7 +453,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Departamentos">
-            <EntityTypeMapping TypeName="InformaticaModel.Departamentos">
+            <EntityTypeMapping TypeName="InformaticaModel.Departamento">
               <MappingFragment StoreEntitySet="Departamentos">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -441,7 +463,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="InformaticaModel.Products">
+            <EntityTypeMapping TypeName="InformaticaModel.Product">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -452,7 +474,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Stocks">
-            <EntityTypeMapping TypeName="InformaticaModel.Stocks">
+            <EntityTypeMapping TypeName="InformaticaModel.Stock">
               <MappingFragment StoreEntitySet="Stocks">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
@@ -466,7 +488,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tipo">
+          <EntitySetMapping Name="Tipoes">
             <EntityTypeMapping TypeName="InformaticaModel.Tipo">
               <MappingFragment StoreEntitySet="Tipo">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -476,7 +498,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Unidades">
-            <EntityTypeMapping TypeName="InformaticaModel.Unidades">
+            <EntityTypeMapping TypeName="InformaticaModel.Unidade">
               <MappingFragment StoreEntitySet="Unidades">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Unidad" ColumnName="Unidad" />
@@ -485,7 +507,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UnidadNegocio">
+          <EntitySetMapping Name="UnidadNegocios">
             <EntityTypeMapping TypeName="InformaticaModel.UnidadNegocio">
               <MappingFragment StoreEntitySet="UnidadNegocio">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -495,7 +517,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="InformaticaModel.Usuarios">
+            <EntityTypeMapping TypeName="InformaticaModel.Usuario">
               <MappingFragment StoreEntitySet="Usuarios">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -504,6 +526,17 @@
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="Departamento" ColumnName="Departamento" />
                 <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebAdminUsers">
+            <EntityTypeMapping TypeName="InformaticaModel.WebAdminUser">
+              <MappingFragment StoreEntitySet="WebAdminUser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -521,7 +554,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />

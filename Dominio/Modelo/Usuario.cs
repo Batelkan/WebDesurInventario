@@ -12,12 +12,12 @@ namespace Dominio.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios
+    public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuarios()
+        public Usuario()
         {
-            this.Datos = new HashSet<Datos>();
+            this.Datos = new HashSet<Dato>();
         }
     
         public int ID { get; set; }
@@ -29,6 +29,6 @@ namespace Dominio.Modelo
         public string Puesto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Datos> Datos { get; set; }
+        public virtual ICollection<Dato> Datos { get; set; }
     }
 }

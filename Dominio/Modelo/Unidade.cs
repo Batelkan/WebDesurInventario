@@ -12,7 +12,7 @@ namespace Dominio.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Unidades
+    public partial class Unidade
     {
         public int ID { get; set; }
         public string Unidad { get; set; }
