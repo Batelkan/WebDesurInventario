@@ -15,18 +15,16 @@ namespace WebUI.Controllers
             return View();
         }
 
-        public ActionResult LoginForm()
-        {
-            return View();
-        }
         [HttpPost]
-        public ActionResult LoginForm(WebAdminUser usr)
+        public ActionResult Login(WebAdminUser usr)
         {
-            if(ModelState.IsValid)
+            //var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if (ModelState.IsValid)
             {
                 using (AlmacenEntidadesConexion context = new AlmacenEntidadesConexion())
                 {
                     var obj = context.WebAdminUsers.Where(x => x.Correo.Equals(usr.Correo) && x.contraseña.Equals(usr.contraseña)).FirstOrDefault();
+                 
                     if (obj != null)
                     {
                         return RedirectToAction("UserDashBoard");

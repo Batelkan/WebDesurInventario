@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Login.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+   
+    <div class="container">
+        @*<div class="row visible-xs">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+               
+            </div>
+            <div class="col-xs-4"></div>
+        </div>*@
+        <div class="row hidden-xs">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                @RenderBody()
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+        </div>
+
+</body>
+</html>
+
+
